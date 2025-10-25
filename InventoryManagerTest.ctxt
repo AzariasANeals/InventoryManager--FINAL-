@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=InventoryManagerTest
+comment1.params=
+comment1.target=void\ testNormalCase1()
+comment2.params=
+comment2.target=void\ testNormalCase2()
+comment3.params=
+comment3.target=void\ testNormalCase3()
+comment4.params=
+comment4.target=void\ testEmptyArray()
+comment5.params=
+comment5.target=void\ testAllZeroes()
+comment6.params=
+comment6.target=void\ testZeroesAtEnd()
+numComments=7
