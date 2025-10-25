@@ -1,0 +1,94 @@
+Time Complexity (O(n)) 
+● n = number of elements in the array. 
+
+What we do in the code: 
+1. Count zeros: We look at each element once → takes n steps. 
+2. Work backward to shift/duplicate zeros: Again, we look at each element once → 
+another n steps. 
+
+ So in total, we do about 2n steps. 
+
+● In Big O notation, we ignore constants → O(n). 
+
+Simple analogy: 
+If you have 8 items on a table and you inspect each one twice, that’s 16 checks. But in Big O, 
+we just say “proportional to the number of items,” so O(n). 
+
+Space Complexity (O(1)) 
+● We don’t create any big extra array. 
+● We only use a few extra variables: zeros, length, newPos. 
+
+ That means space used doesn’t grow if the array gets bigger → O(1), constant space.  
+In short: 
+● Time: Proportional to array size → O(n) 
+● Space: Only a few variables, doesn’t depend on array size → O(1) 
+ 
+1. Time Complexity 
+Time complexity measures how many steps the algorithm takes relative to input size. 
+
+Step 1: Count zeros 
+for (int num : inventory) { 
+    if (num == 0) zeros++; 
+} 
+ 
+● You visit every element once to count zeros. 
+ 
+● Let n = length of the array. 
+ 
+● Steps taken = n. 
+ 
+Contribution to time complexity: O(n) 
+ 
+Step 2: Iterate backward and shift elements 
+for (int i = length - 1; i >= 0; i--) { 
+    int newPos = i + zeros; 
+    if (newPos < length) inventory[newPos] = inventory[i]; 
+    if (inventory[i] == 0) { 
+        zeros--; 
+        if (i + zeros < length) inventory[i + zeros] = 0; 
+    } 
+} 
+ 
+● Again, you visit each element once. 
+ 
+● For each element: 
+ 
+1. Calculate newPos → O(1) operation 
+2. Copy element → O(1) operation 
+3. If zero, duplicate it → O(1) operation 
+● No nested loops here, so each element costs constant time. 
+● Total steps ≈ n → O(n) 
+
+Total Time Complexity 
+● Step 1: O(n) 
+● Step 2: O(n) 
+● Add together → O(n + n) = O(2n) 
+● In Big O notation, we ignore constants, so final time complexity = O(n) 
+
+Simple analogy: 
+● If you have 8 items, counting zeros = 8 steps. 
+● Shifting/duplicating = another 8 steps → 16 steps total. 
+● For large arrays, steps grow linearly with size → O(n). 
+
+2. Space Complexity 
+Space complexity measures how much extra memory is used relative to input size. 
+
+Step-by-step analysis: 
+You only use a few extra variables: 
+int zeros, length, newPos; 
+
+● No new arrays are created. 
+● No recursion or data structures that grow with input. 
+
+Total Space Complexity 
+● Constant space → O(1) 
+
+Simple analogy: 
+● You are rearranging elements on the same table using just a few sticky notes for 
+numbers. 
+● Space doesn’t grow as the array gets bigger. 
+
+Time: O(n)
+Space: O(1)
+
+
